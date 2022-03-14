@@ -1,7 +1,7 @@
 package com.example.game;
 
 import java.util.ArrayList;
-import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,10 +15,7 @@ public class HeroController {
     
     @Autowired
     private HeroService heroService;
-    
-    @Autowired
-    private QuestService questService;
-    
+
     @GetMapping("/heroes")
     public String getHeroes(Model model) {
         ArrayList<Hero> heroes = heroService.getHeroes();
@@ -36,15 +33,8 @@ public class HeroController {
     @GetMapping("heroes/{heroName}")
     public String getHeroInfo(@PathVariable String heroName, Model model) {
         Hero hero = heroService.findHeroByName(heroName);
-        List<Quest> quests = questService.getQuests();
         model.addAttribute("hero", hero);
-        model.addAttribute("quests", quests);
         return "hero";
     }
-    
-    @PostMapping("/tryquest")
-    public String tryQuest(@RequestParam String heroName, String questName) {
-        heroService.tryQuest(heroName, questName);
-        return "redirect:/heroes/" + heroName;
-    }
+
 }

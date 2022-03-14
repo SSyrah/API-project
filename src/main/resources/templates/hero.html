@@ -14,17 +14,5 @@
         <form method="get" action="/heroes">
             <button>Back</button>
         </form>
-        
-        <h2 th:if="${hero.health > 0}">Available Quests</h2>
-        <ul th:if="${hero.health > 0}">
-            <li th:each="quest : ${quests}">
-                <span th:text="${quest.name} + ' (difficulty ' + ${quest.difficulty} + ')'">quest</span>
-                <form method="post" action="/tryquest">
-                    <input type="hidden" id="hero" name="heroName" th:value="${hero.name}">
-                    <input type="hidden" id="quest" name="questName" th:value="${quest.name}">
-                    <button type="submit">Try Quest</button>
-                </form>
-            </li>
-        </ul>
     </body>
 </html>
