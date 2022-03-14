@@ -25,23 +25,4 @@ public class Hero extends AbstractPersistable<Long> {
         this.health = 3;
         this.gold = 0;
     }
-    
-    public void completeQuest() {
-        this.gold += 100;
-        this.level += 1;
-        this.status = "Completed a quest! Yay!";
-    }
-    
-    public void failQuest() {
-        this.gold = 0;
-        this.health -= 1;
-        
-        if (this.health == 0) {
-            this.status = "Oooppps... hero died!";
-        } else {
-            this.status = "Failed in the quest... loser!";
-        }
-        
-    }
-    
 }
