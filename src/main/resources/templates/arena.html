@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Questing Heroes - Quests Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <form method="POST" action="/fight">
+            <td>
+                <select name="hero1" id="hero1" class="form-control">
+                    <option th:each="hero:${heroes}"
+                            th:value="${hero.id}"
+                            th:text="${hero.name}">
+                    </option>
+                </select>
+            </td>
+
+            <td>
+                <select name="hero2" id="hero2" class="form-control">
+                    <option th:each="hero:${heroes}"
+                            th:value="${hero.id}"
+                            th:text="${hero.name}">
+                    </option>
+                </select>
+            </td>
+            <button type="submit">Fight</button>
+        </form>
+
+        <form method="GET" action="/">
+            <button type="submit">Back</button>
+        </form>
+
+        <h2>Winner:</h2>
+        <p th:text="${winner?.name}"></p>
+
+    </body>
+</html>
