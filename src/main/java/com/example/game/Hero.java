@@ -17,6 +17,7 @@ public class Hero extends AbstractPersistable<Long> {
     private int level;
     private int health;
     private int gold;
+    // private int shield;
 
     public Hero(String name) {
         this.name = name;
@@ -24,5 +25,6 @@ public class Hero extends AbstractPersistable<Long> {
         this.level = 1;
         this.health = 3;
         this.gold = 0;
+        // this.shield = 1;
     }
 }
