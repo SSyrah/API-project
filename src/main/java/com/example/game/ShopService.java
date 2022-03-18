@@ -19,7 +19,7 @@ public class ShopService {
     public ArrayList<Hero> getHeroes() { return  this.heroRepository.findAll(); }
 
     public Hero updateHero(Hero theHero){
-        if (theHero.getGold() > shieldupdate){
+        if (theHero.getGold() >= shieldupdate){
             theHero.setLevel(theHero.getLevel() + 1);
             theHero.setGold(theHero.getGold() - shieldupdate);
             this.heroRepository.save(theHero);
