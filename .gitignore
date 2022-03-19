@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+## Database files (hard conflicts on merge if testing & updating it locally)
+*.db
