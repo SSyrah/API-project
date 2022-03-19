@@ -14,6 +14,8 @@ import org.springframework.data.jpa.domain.AbstractPersistable;
 public class Hero extends AbstractPersistable<Long> {
     private String name;
     private String status;
+    private int strength;
+    private int defense;
     private int level;
     private int health;
     private int gold;
