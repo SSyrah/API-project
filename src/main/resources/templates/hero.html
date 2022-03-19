@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Questing Heroes - Hero page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <div class="container">
+            <div class="row">
         <h2 th:text="${hero.name}">name</h2>
+        <br>
         <h3 th:text="${hero.status}">status</h3>
+        <br>
         <span th:text="'Level: ' + ${hero.level}">level</span><br>
         <span th:text="'Health: ' + ${hero.health}">health</span><br>
         <span th:text="'Strength: ' + ${hero.strength}">health</span><br>
         <span th:text="'Defense: ' + ${hero.defense}">health</span><br>
         <span th:text="'Gold: ' + ${hero.gold}">gold</span><br>
+        <br>
+            </div>
+            <div class="row">
+                <div class="col-sm-1">
         <form method="get" action="/heroes">
             <button>Back</button>
         </form>
+                </div>
         <br>
         <br>
+            <div class="col-sm-1">
         <form method="get" action="/arena">
             <button>To Arena</button>
         </form>
+            </div>
         <br>
+            <div class="col-sm-1">
         <form method="get" action="/shop">
             <button>To Shop</button>
         </form>
+            </div>
+            </div>
+        </div>
     </body>
 </html>

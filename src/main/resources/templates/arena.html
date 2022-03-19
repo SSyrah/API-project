@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <title>Questing Heroes - Quests Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-
-        <form method="POST" action="/fight">
+        <div class="container">
+            <br><br><br>
+            <div class="row">
+                <form method="POST" action="/fight">
+            <div class="col">
+                <span>Hero 1:</span>
             <td>
                 <select name="hero1" id="hero1" class="form-control">
                     <option th:each="hero:${heroes}"
@@ -16,7 +21,10 @@
                     </option>
                 </select>
             </td>
-
+            </div>
+            <div class="col">
+                <br>
+                <span>Hero 2:</span>
             <td>
                 <select name="hero2" id="hero2" class="form-control">
                     <option th:each="hero:${heroes}"
@@ -25,15 +33,18 @@
                     </option>
                 </select>
             </td>
+                </div>
+                    </div>
+            <br>
             <button type="submit">Fight</button>
         </form>
-
+            <br><br>
         <form method="GET" action="/">
             <button type="submit">Back</button>
         </form>
-
+        <br><br>
         <h2>Winner:</h2>
         <p th:text="${winner?.name}"></p>
-
+        </div>
     </body>
 </html>
