@@ -1,24 +1,37 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <title>Questing Heroes - Heroes</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <h1>Available Heroes</h1>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Questing Heroes - Heroes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<h1 style="text-align: center">Available Heroes</h1>
+<div class="container">
+    <div class="row">
         <ul>
             <li th:each="hero:${heroes}">
-                <a th:href="@{heroes/{item}(item=${hero.name})}" th:text="${hero.name} + ' (level ' + ${hero.level} + ')'">hero</a>
+                <a style="color: white;  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;" th:href="@{heroes/{item}(item=${hero.name})}" th:text="${hero.name} + ' (level ' + ${hero.level} + ')'">hero</a>
             </li>
         </ul>
-        <form method="get" action="/">
-            <button>Back</button>
-        </form>
+    </div>
+    <div class="col">
         <form method="post" action="/heroes">
             <input type="text" name="heroName" placeholder="New Hero Name..." required>
             <button>Add New Hero</button>
         </form>
-    </body>
+    </div>
+    <br><br>
+    <div class="col">
+        <form method="get" action="/">
+            <button>Back</button>
+        </form>
+        <br>
+    </div>
+    <div class="col">
+        <img src="https://mcdn.wallpapersafari.com/medium/40/27/U8VsiK.jpg"  class="rounded float-end" alt="">
+    </div>
+</div>
+</body>
 </html>
