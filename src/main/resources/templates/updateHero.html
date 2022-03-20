@@ -15,6 +15,13 @@
 <span th:text="'Health: ' + ${hero.health}">health</span><br>
 <span th:text="'Gold: ' + ${hero.gold}">gold</span><br>
 
+<h1>Items in shop:</h1>
+<ul>
+    <li th:each="equip:${items}">
+        <a th:href="@{hero/{item}(item=${equip.name})}" th:text="${equip.name} + ': strength: ' + ${equip.strength} + ', defence: ' + ${equip.defense}">item</a>
+    </li>
+</ul>
+
 <form method="GET" action="/">
     <button type="submit">Back</button>
 </form>
