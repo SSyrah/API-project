@@ -11,12 +11,20 @@
 <br>
 <div class="container">
     <div class="row">
-        <h2 th:text="${hero.name}">name</h2>
-        <h3 th:text="${hero.status}">status</h3>
-        <span th:text="'Level: ' + ${hero.level}">level</span><br>
-        <span th:text="'Health: ' + ${hero.health}">health</span><br>
-        <span th:text="'Gold: ' + ${hero.gold}">gold</span><br><br><br>
-    </div>
+        <div class="col-first">
+            <h2 th:text="${hero.name}">name</h2>
+            <h3 th:text="${hero.status}">status</h3>
+            <span th:text="'Level: ' + ${hero.level}">level</span><br>
+            <span th:text="'Health: ' + ${hero.health}">health</span><br>
+            <span th:text="'Gold: ' + ${hero.gold}">gold</span><br><br><br>
+        </div>
+        <div class="col-second">
+            <li th:each="item : ${items}">
+                <span th:text="'Name: ' + ${item.name} + ' Defense: ' + ${item.defense} + ' Strength: ' + ${item.strength}">item</span>
+            </li>
+            <br><br>
+        </div>
+        </div>
     <div class="row">
         <form th:if="${hero.gold > 500}" method="POST" action="/shop/{heroName}">
             <button type="submit">Update shield</button>
