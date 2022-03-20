@@ -33,4 +33,5 @@ build/
 .vscode/
 
 ## Database files (hard conflicts on merge if testing & updating it locally)
-*.db
+database.mv.db
+database.trace.db
