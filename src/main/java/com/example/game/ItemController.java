@@ -12,10 +12,15 @@ public class ItemController {
     @Autowired
     private ItemService itemService;
 
+    @Autowired
+    private HeroService heroService;
+
     @GetMapping("/items")
     public String getItems(Model model) {
         ArrayList<Item> items = itemService.getItems();
+        ArrayList<Hero> heroes = heroService.getHeroes();
         model.addAttribute("items", items);
+        model.addAttribute("heroes", heroes);
         return "items";
     }
 
@@ -32,4 +37,17 @@ public class ItemController {
         model.addAttribute("item", item);
         return "Item:";
     }
+
+    @PutMapping("/bought")
+    public String buyItem(
+            @RequestParam("heroChoice") long hero_id,
+            @RequestParam("itemChoice") long item_id
+    ){
+            System.out.println(hero_id + ' ' + item_id);
+            heroService.findHeroById(hero_id).addItem(itemService.findItemById(item_id));
+            return "redirect:/items";
+    }
+
+
+
 }

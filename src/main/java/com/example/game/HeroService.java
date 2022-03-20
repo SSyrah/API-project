@@ -12,6 +12,9 @@ public class HeroService {
     @Autowired
     private HeroRepository heroRepository;
 
+    @Autowired
+    private ItemRepository itemRepository;
+
     public ArrayList<Hero> getHeroes() {
         return this.heroRepository.findAll();
     }

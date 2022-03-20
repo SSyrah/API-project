@@ -11,10 +11,24 @@
 
 </ul>
 
-<li th:each="i:${items}">
-    <a th:text="${i.getName()} + ' (strength: ' + ${i.getStrength()} + ', defense: ' + ${i.getDefense()} + ')'">i</a>
-</li>
 
+<form method="post" action="/bought">
+<table><td>
+    <tr th:each="item: ${items}">
+    <td><input type="radio" name="itemChoice"
+            th:text="${item.getName()} + '(strength:' + ${item.getStrength} +', defense:' + ${item.getDefense}+')'"
+            th:value="${item.getId()}"></td>
+    </tr>
+</table>
+    <select name="heroChoice">
+    <option th:each="hero:${heroes}"
+            th:value="${hero.getId()}"
+            th:text="${hero.getName()}" />
+         <input type = "submit" label = "buy"></input>
+
+
+</select>
+</form>
 
 
 <form method="get" action="/">

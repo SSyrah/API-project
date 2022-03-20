@@ -5,16 +5,16 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HeroController {
     
     @Autowired
     private HeroService heroService;
+
+    @Autowired
+    private ItemService itemService;
 
     @GetMapping("/heroes")
     public String getHeroes(Model model) {
@@ -35,6 +35,17 @@ public class HeroController {
         Hero hero = heroService.findHeroByName(heroName);
         model.addAttribute("hero", hero);
         return "hero";
+    }
+
+    @PutMapping("shop/{heroName}")
+    Item BuyItem(@PathVariable String heroName, long item_id){
+        Hero hero =  heroService.findHeroByName(heroName);
+        long hero_id = hero.getId();
+        Item item = itemService.findItemById(item_id);
+
+        hero.addItem(item);
+
+        return item;
     }
 
 }

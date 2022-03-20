@@ -1,13 +1,15 @@
 package com.example.game;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Item {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private long id;
     @Column(name="name")
     private String name;
 
@@ -16,6 +18,9 @@ public class Item {
 
     @Column(name="defense")
     private int defense;
+
+    @ManyToMany(mappedBy = "heldItems")
+    public Set<Hero> heroItems = new HashSet<>();
 
     public Item() {
 
@@ -36,7 +41,7 @@ public class Item {
                 ", Defense = " + defense + "}";
     }
 
-    private int getId() {
+    public long getId() {
         return id;
     }
 
@@ -66,5 +71,9 @@ public class Item {
 
     public void setDefense(int defense) {
         this.defense = defense;
+    }
+
+    public Set<Hero> getHeroItems() {
+        return heroItems;
     }
 }

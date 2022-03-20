@@ -16,6 +16,8 @@ public class ShopController {
     private HeroService heroservice;
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private ItemService itemService;
 
     @GetMapping("/shop")
     public String getShop(Model model){
@@ -40,4 +42,3 @@ public class ShopController {
     }
 
 }
-
