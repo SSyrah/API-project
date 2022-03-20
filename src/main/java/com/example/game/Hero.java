@@ -23,10 +23,30 @@ public class Hero extends AbstractPersistable<Long> {
 
     public Hero(String name) {
         this.name = name;
-        this.status = "This noob is waiting for the first quest!";
+        this.status = "Ready to fight (or not....)";
         this.level = 1;
         this.health = 3;
         this.gold = 0;
         // this.shield = 1;
+    }
+
+    public void winBattle(){
+        this.gold += 100;
+        this.level += 1;
+        this.status = "Hooray, who's the master!";
+    }
+
+    public void loseBattle() {
+        if (this.gold < 50) {
+            this.gold = 0;
+        } else {
+            this.gold -= 50;
+        }
+        if (this.level <= 1) {
+            this.level = 0;
+        } else {
+            this.level -= 1;
+        }
+        this.status = "Better luck next time!";
     }
 }

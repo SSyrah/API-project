@@ -11,7 +11,7 @@
 <h2>Available heroes choose one to update:</h2>
 <ul>
   <li th:each="hero:${heroes}">
-    <a th:href="@{shop/{item}(item=${hero.name})}" th:text="${hero.name} + 'LEVEL: '+ ${hero.level} + 'Wealth: ' + ${hero.gold}">hero</a>
+    <a style="color: white;  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;" th:href="@{shop/{item}(item=${hero.name})}" th:text="${hero.name} + '  LEVEL: '+ ${hero.level} + '  Wealth: ' + ${hero.gold}">hero</a>
   </li>
 </ul>
 <br>

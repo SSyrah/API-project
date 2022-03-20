@@ -7,17 +7,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<h2>Update hero</h2>
+<h2 style="text-align: center">Update hero</h2>
 <br>
-<h2 th:text="${hero.name}">name</h2>
-<h3 th:text="${hero.status}">status</h3>
-<span th:text="'Level: ' + ${hero.level}">level</span><br>
-<span th:text="'Health: ' + ${hero.health}">health</span><br>
-<span th:text="'Gold: ' + ${hero.gold}">gold</span><br>
-
-<form method="GET" action="/">
-    <button type="submit">Back</button>
-</form>
-
+<div class="container">
+    <div class="row">
+        <h2 th:text="${hero.name}">name</h2>
+        <h3 th:text="${hero.status}">status</h3>
+        <span th:text="'Level: ' + ${hero.level}">level</span><br>
+        <span th:text="'Health: ' + ${hero.health}">health</span><br>
+        <span th:text="'Gold: ' + ${hero.gold}">gold</span><br><br><br>
+    </div>
+    <div class="row">
+        <form th:if="${hero.gold > 500}" method="POST" action="/shop/{heroName}">
+            <button type="submit">Update shield</button>
+        </form>
+        <br><br><br>
+        <form th:if="${hero.gold >= 200}" method="POST" action="/shop/{heroName}">
+            <button type="submit">Update sword</button>
+        </form>
+        <br><br><br>
+        <form th:if="${hero.gold >= 400}" method="POST" action="/shop/{heroName}">
+            <button type="submit">Update armor</button>
+        </form><br><br>
+        <span th:if="${hero.gold < 200}">Sorry, cannot update anything!</span>
+    </div>
+    <div class="col">
+        <form method="GET" action="/">
+            <button type="submit">Back to start</button>
+        </form>
+    </div>
+    <div class="row">
+        <img src="https://mcdn.wallpapersafari.com/medium/40/27/U8VsiK.jpg"  class="rounded float-end" alt="">
+    </div>
+</div>
 </body>
 </html>

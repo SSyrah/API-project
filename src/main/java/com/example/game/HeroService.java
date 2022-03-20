@@ -31,8 +31,10 @@ public class HeroService {
         if (firstHero.equals(secondHero)){
             return null;
         } else {
-            firstHero.setGold(firstHero.getGold()+10);
-            secondHero.setGold(secondHero.getGold()-10);
+            // firstHero.setGold(firstHero.getGold()+10);
+            firstHero.winBattle();
+            // secondHero.setGold(secondHero.getGold()-10);
+            secondHero.loseBattle();
             this.heroRepository.save(firstHero);
             this.heroRepository.save(secondHero);
             return firstHero;

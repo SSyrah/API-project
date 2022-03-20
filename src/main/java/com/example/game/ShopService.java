@@ -7,9 +7,9 @@ import java.util.ArrayList;
 
 @Service
 public class ShopService {
-    private int shieldupdate = 100;
-    private int armorupdate = 200;
-    private int swordupdate = 50;
+    private int update = 200;
+    //private int armorupdate = 200;
+    //private int swordupdate = 50;
 
     @Autowired
     private HeroRepository heroRepository;
@@ -19,9 +19,9 @@ public class ShopService {
     public ArrayList<Hero> getHeroes() { return  this.heroRepository.findAll(); }
 
     public Hero updateHero(Hero theHero){
-        if (theHero.getGold() >= shieldupdate){
+        if (theHero.getGold() >= update){
             theHero.setLevel(theHero.getLevel() + 1);
-            theHero.setGold(theHero.getGold() - shieldupdate);
+            theHero.setGold(theHero.getGold() - update);
             this.heroRepository.save(theHero);
         }
         else {
