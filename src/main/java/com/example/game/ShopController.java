@@ -16,6 +16,8 @@ public class ShopController {
     private HeroService heroservice;
     @Autowired
     private ShopService shopService;
+    @Autowired
+    private ItemService itemService;
 
     @GetMapping("/shop")
     public String getShop(Model model){
@@ -28,6 +30,8 @@ public class ShopController {
     public String getHeroInfo(@PathVariable String heroName, Model model){
         Hero hero = heroservice.findHeroByName(heroName);
         model.addAttribute("hero", hero);
+        List<Item> itemList = itemService.getItems();
+        model.addAttribute("items", itemList);
         return "updateHero";
     }
 
