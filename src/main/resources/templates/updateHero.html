@@ -26,15 +26,15 @@
         </div>
         </div>
     <div class="row">
-        <form th:if="${hero.gold > 500}" method="POST" action="/shop/{heroName}">
+        <form th:if="${hero.gold > 500}" method="POST" action="/shop/${hero.name}">
             <button type="submit">Update shield</button>
         </form>
         <br><br><br>
-        <form th:if="${hero.gold >= 200}" method="POST" action="/shop/{heroName}">
+        <form th:if="${hero.gold >= 200}" method="POST" action="/shop/${hero.name}">
             <button type="submit">Update sword</button>
         </form>
         <br><br><br>
-        <form th:if="${hero.gold >= 400}" method="POST" action="/shop/{heroName}">
+        <form th:if="${hero.gold >= 400}" method="POST" action="/shop/${hero.name}">
             <button type="submit">Update armor</button>
         </form><br><br>
         <span th:if="${hero.gold < 200}">Sorry, cannot update anything!</span>
